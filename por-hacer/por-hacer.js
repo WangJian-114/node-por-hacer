@@ -89,9 +89,24 @@ const borrar = (descripcion) => {
 
 }
 
+const verTarea = (condicion) => {
+    cargarDB();
+    let tareaSinR =  listadoPorHacer.filter( tarea => {
+        return tarea.completado == condicion;
+    });
+    
+    if(tareaSinR.length > 0){
+        return tareaSinR;
+
+    }else{
+        return false;
+    }
+}
+
 module.exports = {
     crear,
     getListado,
     actualizar,
-    borrar
+    borrar,
+    verTarea
 }
